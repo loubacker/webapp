@@ -1,0 +1,536 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+
+}
+
+/* Navbar */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    flex-wrap: wrap; /* Permite que o conteúdo do navbar ajuste */
+    position: relative; /* Mantém posição normal no fluxo */
+    z-index: 1000;
+}
+
+/* Logo */
+.navbar-brand {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: auto; /* Alinha à esquerda */
+}
+
+/* Links centralizados */
+.navbar-links {
+    display: flex;
+    gap: 20px;
+    margin: 0 auto; /* Centraliza os links */
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    display: flex; /* Links visíveis em desktop */
+}
+
+.navbar-links a:hover {
+    color: #28a745; /* Cor verde no hover */
+}
+
+/* Botões de Login e Cadastro */
+.navbar-buttons {
+    display: flex;
+    gap: 10px; /* Espaço entre os botões */
+    margin-left: auto; /* Alinha os botões à direita */
+}
+
+.btn-login,
+.btn-cadastro {
+    background-color: #333;
+    color: #fff;
+    padding: 8px 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-login:hover,
+.btn-cadastro:hover {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* Ajuste para o botão de usuário no Navbar */
+.navbar-user-icon {
+    display: none; /* Oculta em telas maiores */
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.navbar-user-icon i {
+    font-size: 1.5rem; /* Ajusta o tamanho do ícone */
+}
+
+/* Navbar - Adicionando o botão dropdown para telas menores */
+.navbar-toggler {
+    display: none;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.navbar-toggler:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+
+/* Header */
+.header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: 0px; /* Ajuste devido ao Navbar fixo */
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    padding: 20px;
+}
+
+/* Container principal */
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center; /* Centraliza os elementos do container */
+}
+
+/* Box container */
+.box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    justify-content: center;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Box container */
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    position: relative; /* Fluxo normal */
+}
+
+/* Box Rifa */
+.box-rifa {
+    width: 120px; /* Largura fixa */
+    height: 120px; /* Altura fixa */
+    background-color: #f9f9f9; /* Cor de fundo padrão */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.box-rifa:hover {
+    transform: scale(1.05);
+}
+
+.status {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.numero {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btn-selecionar {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-selecionar:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+.footer {
+    background-color: #333; /* Mesmo tom do Navbar */
+    color: #fff; /* Texto branco */
+    text-align: center;
+    padding: 30px 0; /* Espaçamento interno */
+    position: relative; /* Mantém a posição no fluxo normal */
+    margin-top: 20px; /* Espaço superior entre o conteúdo e o footer */
+    width: 100%; /* Garante que ocupa toda a largura */
+    z-index: 1; /* Mantém o footer abaixo das animações */
+}
+
+/* Overlay do Modal - Fundo escuro */
+.modal-overlay {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fundo escuro transparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Garantir que fique acima de outros elementos */
+}
+
+/* Conteúdo do Modal */
+.modal-content {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    width: 400px; /* Largura fixa do modal */
+    max-width: 90%; /* Responsivo */
+    text-align: center;
+    position: relative;
+}
+
+/* Botão de Fechar */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: red;
+}
+
+/* Estilo do Título */
+.modal-content h3 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Número Selecionado - Estilo Grande */
+#numeroSelecionado {
+    font-size: 4rem; /* Tamanho maior */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    display: block; /* Quebra para nova linha */
+    font-family: "Comic Sans MS", cursive;
+}
+
+/* Formulário */
+#formCompra input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Botão de Compra */
+#confirmarCompraBtn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Espaçamento acima do botão */
+}
+
+#confirmarCompraBtn:hover {
+    background-color: #218838;
+}
+
+.modal-content input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Animação do Modal */
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Loading Spinner */
+.spinner {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #28a745; /* Cor da borda principal */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Wrapper para centralização */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Container do checkmark */
+.checkmark {
+    width: 100px; /* Tamanho do círculo externo */
+    height: 100px;
+    border-radius: 50%;
+    background-color: #7ac142; /* Verde */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 auto; /* Centraliza horizontalmente */
+    animation: scale 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; /* Animação de escala */
+}
+
+/* Círculo externo com traçado animado */
+.checkmark__circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Preenche o container */
+    height: 100%;
+    stroke-dasharray: 314; /* Circunferência aproximada do círculo */
+    stroke-dashoffset: 314;
+    stroke-width: 5;
+    stroke-miterlimit: 10;
+    stroke: #fff; /* Branco para contraste */
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; /* Animação do traçado */
+}
+
+/* Ícone do check no centro */
+.checkmark::after {
+    content: '';
+    width: 20px; /* Largura do traço horizontal */
+    height: 40px; /* Altura do traço vertical */
+    border: solid #fff; /* Cor branca */
+    border-width: 0 5px 5px 0;
+    position: absolute;
+    transform: rotate(45deg); /* Orientação correta do check */
+    animation: drawCheck 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.5s forwards; /* Animação do check */
+}
+
+/* Estilo e alinhamento do texto */
+#checkVisual {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Espaçamento entre o ícone e o texto */
+    margin-top: 20px;
+}
+
+#checkVisual p {
+    font-size: 18px; /* Ajuste de tamanho do texto */
+    color: #000; /* Cor preta */
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Animação do traçado do círculo */
+@keyframes stroke {
+    from {
+        stroke-dashoffset: 314; /* Início do traçado */
+    }
+    to {
+        stroke-dashoffset: 0; /* Completa o traçado */
+    }
+}
+
+/* Animação de escala do círculo */
+@keyframes scale {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Animação do traço do check */
+@keyframes drawCheck {
+    from {
+        opacity: 0;
+        transform: scale(0.8) rotate(45deg); /* Início da animação com escala menor */
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(45deg); /* Final no tamanho correto */
+    }
+}
+
+
+/* Estilo das mensagens */
+#loading p, #checkVisual p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #333;
+    text-align: center;
+}
+
+
+/********************************
+ * Responsividade               *
+ ********************************/
+/* Configuração para tablets - 4 colunas */
+@media (min-width: 1200px) {
+    .box-container {
+        grid-template-columns: repeat(7, 1fr); /* Até 7 colunas em desktop */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-toggler {
+        display: block; /* Exibe o botão */
+    }
+
+    .navbar-user-icon {
+        display: block; /* Mostra o ícone do usuário */
+    }
+
+    .navbar-links {
+        display: none; /* Oculta os links principais */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Ajusta a posição do menu dropdown */
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        text-align: center;
+        z-index: 999;
+    }
+
+    .navbar-links.show {
+        display: flex; /* Mostra o menu ao clicar */
+    }
+
+    .navbar-buttons {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px; /* Espaçamento entre botões e links */
+    }
+
+    .navbar-buttons a {
+        margin: 5px 0; /* Espaço vertical entre os botões */
+    }
+
+    .btn-login,
+    .btn-cadastro {
+        margin: 5px 0;
+    }
+
+    .header h1 {
+        font-size: 1.5rem; /* Reduz o tamanho do título */
+    }
+
+    .section-title {
+        font-size: 1rem;
+    }
+}
+
+/* Header Responsivo */
+.header {
+    font-size: 1rem; /* Reduz tamanho da fonte */
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .header {
+        font-size: 1.2rem; /* Menor em telas pequenas */
+    }
+}
+
+/* Box Rifa - Ajuste para 3 colunas */
+@media (max-width: 768px) {
+    .box-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    }
+}
+
+/* Box Rifa - Ajuste fino para telas muito pequenas */
+@media (max-width: 480px) {
+    .box-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    }
+}

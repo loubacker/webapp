@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiFa Caleb</title>
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="css/styleRifa.css?v=1.0.1">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Logo à esquerda -->
+        <a href="#" class="navbar-brand">PushBait</a>
+
+        <!-- Ícone de usuário para telas menores -->
+        <div class="navbar-user-icon">
+            <i class="fas fa-user"></i>
+        </div>
+
+        <!-- Dropdown Button no HTML -->
+        <button class="navbar-toggler" onclick="document.querySelector('.navbar-links').classList.toggle('show')">&#9776;</button>
+
+        <!-- Links centralizados -->
+        <div class="navbar-links">
+            <a href="/index">Início</a>
+            <a href="/portfolio">Portfólio</a>
+            <a href="/contato">Contato</a>
+        </div>
+        
+        <!-- Botões à direita -->
+        <div class="navbar-buttons">
+            <a href="/login" class="btn btn-login">Login</a>
+            <a href="/cadastro" class="btn btn-cadastro">Cadastrar</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>Rifa do Enxoval de Kaleb</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <h3 class="section-title">Escolha seu Número</h3>
+        <div class="box-container">
+            <!-- Loop Thymeleaf -->
+            <div th:each="numero : ${numerosDisponiveis}" class="box-rifa">
+                <div class="status" th:classappend="${numero.disponivel} ? 'status-success' : 'status-danger'"
+                    th:text="${numero.disponivel} ? 'Disponível' : 'Indisponível'"></div>
+                <div class="numero" th:text="${numero.numero}"></div>
+                <button th:if="${numero.disponivel}" class="btn-selecionar" 
+                    onclick="abrirModal(this.getAttribute('data-numero'))"
+                    th:data-numero="${numero.numero}">Selecionar</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Confirmação -->
+    <div id="modalConfirmarCompra" class="modal-overlay">
+        <div class="modal-content">
+            <!-- Botão de Fechar -->
+            <span id="closeModal" class="modal-close" onclick="fecharModal()">&times;</span>
+            
+            <!-- Conteúdo do Modal -->
+            <h3>Confirmação da Compra</h3>
+            <p>Número Selecionado: <span id="numeroSelecionado"></span></p>
+            
+            <!-- Formulário -->
+            <form id="formCompra">
+                <!-- Nome do Comprador -->
+                <input type="text" id="nome" placeholder="Seu Nome" required>
+                
+                <!-- Telefone (WhatsApp) -->
+                <input type="text" id="telefone" placeholder="Telefone (WhatsApp)" required>
+                
+                <!-- Botão para Confirmar Compra -->
+                <button type="button" id="confirmarCompraBtn">Confirmar Compra</button>
+            </form>
+
+            <!-- Indicador de Carregamento -->
+            <div id="loading" style="display: none; text-align: center;">
+                <div class="spinner"></div>
+                <p>Gerando QR Code, aguarde...</p>
+            </div>
+
+            <!-- Indicador de Sucesso -->
+            <div id="checkVisual" style="display: none; text-align: center;">
+                <div class="checkmark"></div>
+                <p id="mensagemSucesso">Compra realizada com sucesso!</p>
+            </div>
+
+            <!-- Detalhes da Compra (dinâmico) -->
+            <div id="detalhesCompra" style="display: none;">
+                <h4>Detalhes do Pagamento PIX</h4>
+                <p>QR Code:</p>
+                <img id="qrCodePix" src="" alt="QR Code PIX" style="max-width: 100%; height: auto;">
+                <p>Código PIX Copia e Cola:</p>
+                <textarea id="codigoPixCopiaCola" readonly style="width: 100%; height: 60px;"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Desenvolvido por &lt;gaBriel_LouBacker/&gt; - 2025</p>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="script/mainRifa.js?v=1.0.1"></script>
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
+</body>
+</html>
